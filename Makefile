@@ -28,7 +28,7 @@ DEPS := $(OBJS:.o=.d)
 
 # Compilateur et flags
 CC := cc
-CFLAGS	:=	-Wall -Werror -Wextra  -MMD -MP -I$(INC_DIR) -I/usr/include
+CFLAGS	:=	-Wall -Werror -Wextra  -MMD -MP -I$(INC_DIR) -I/usr/include -g
 
 LDFLAGS	:=	-lcsv
 

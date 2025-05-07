@@ -2,7 +2,7 @@
  * @ Author: Aska
  * @ Create Time: 2025-05-05 17:13:07
  * @ Modified by: Aska
- * @ Modified time: 2025-05-06 16:53:23
+ * @ Modified time: 2025-05-07 02:58:26
  */
 
 #ifndef SERIES_H
@@ -12,12 +12,12 @@
 
 typedef struct s_series
 {
-	char    *title;
+	char    *name;
 	t_vol3us vol;
 	int      num;
 } t_series;
 
-void init_series(t_series *s, char *title, t_vol3us vol);
+void init_series(t_series *s, char *title, t_vol3us vol, int num);
 void print_series(t_series *s);
 
 #endif

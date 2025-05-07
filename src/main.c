@@ -2,11 +2,11 @@
  * @ Author: Aska
  * @ Create Time: 2025-05-05 03:08:10
  * @ Modified by: Aska
- * @ Modified time: 2025-05-06 18:46:00
+ * @ Modified time: 2025-05-07 03:05:47
  */
 
 #include "check_arg.h"
-#include "data.h"
+// #include "data.h"
 #include "file_load.h"
 #include "lst_books.h"
 #include "lst_shelves.h"
@@ -21,9 +21,9 @@ int main(int ac, char **av)
 
 	exit_code = check_entry_arg(ac, av);
 	if (exit_code == true)
-		exit_code = file_load_books(av[1]);
+		exit_code = file_load_books(av[1], &books);
 	if (exit_code == true)
-		exit_code = file_load_shelves(av[2]);
+		exit_code = file_load_shelves(av[2], &shelf);
 
 	print_lst_shelves(shelf);
 	print_lst_books(books);

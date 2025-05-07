@@ -2,7 +2,7 @@
  * @ Author: Aska
  * @ Create Time: 2025-05-06 00:55:32
  * @ Modified by: Aska
- * @ Modified time: 2025-05-06 18:45:52
+ * @ Modified time: 2025-05-07 03:38:59
  */
 
 #include "lst_shelves.h"
@@ -21,7 +21,10 @@ t_lst_shelves *insert_lst_shelves(t_lst_shelves **head, char *shelf_name, t_vol3
 	new_node->shelf_name = shelf_name;
 	new_node->next       = NULL;
 	if (*head == NULL)
+	{
 		*head = new_node;
+		return (new_node);
+	}
 	tmp_node = *head;
 	while (tmp_node->next)
 		tmp_node = tmp_node->next;
@@ -46,6 +49,7 @@ void delete_node_lst_shelves(t_lst_shelves **head, t_lst_shelves *del_node)
 			return;
 		prev->next = del_node->next;
 	}
+	free(del_node->shelf_name);
 	free(del_node);
 }
 

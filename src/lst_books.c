@@ -2,12 +2,12 @@
  * @ Author: Aska
  * @ Create Time: 2025-05-06 00:55:32
  * @ Modified by: Aska
- * @ Modified time: 2025-05-06 17:36:28
+ * @ Modified time: 2025-05-07 03:31:44
  */
 
 #include "lst_books.h"
 
-t_lst_books *insert_lst_books(t_lst_books **head, t_series series)
+t_lst_books *insert_lst_books(t_lst_books **head, t_series series, int idx)
 {
 	t_lst_books *new_node, *tmp_node;
 
@@ -17,9 +17,13 @@ t_lst_books *insert_lst_books(t_lst_books **head, t_series series)
 	if (new_node == NULL)
 		return (NULL);
 	memcpy(&new_node->series, &series, sizeof series);
+	new_node->idx  = idx;
 	new_node->next = NULL;
 	if (*head == NULL)
+	{
 		*head = new_node;
+		return (new_node);
+	}
 	tmp_node = *head;
 	while (tmp_node->next)
 		tmp_node = tmp_node->next;
@@ -44,6 +48,7 @@ void delete_node_lst_books(t_lst_books **head, t_lst_books *del_node)
 			return;
 		prev->next = del_node->next;
 	}
+	free(del_node->series.name);
 	free(del_node);
 }
 
