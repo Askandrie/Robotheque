@@ -2,7 +2,7 @@
  * @ Author: Aska
  * @ Create Time: 2025-05-06 00:55:32
  * @ Modified by: Aska
- * @ Modified time: 2025-05-07 03:38:59
+ * @ Modified time: 2025-05-07 20:14:20
  */
 
 #include "lst_shelves.h"
@@ -19,6 +19,7 @@ t_lst_shelves *insert_lst_shelves(t_lst_shelves **head, char *shelf_name, t_vol3
 		return (NULL);
 	memcpy(&new_node->volumes, &volumes, sizeof(t_vol3us));
 	new_node->shelf_name = shelf_name;
+	new_node->is_full    = false;
 	new_node->next       = NULL;
 	if (*head == NULL)
 	{
@@ -70,4 +71,18 @@ void print_lst_shelves(t_lst_shelves *head)
 		print_vol3us(tmp_node->volumes);
 		tmp_node = tmp_node->next;
 	}
+}
+
+bool check_lst_shelves_is_full(t_lst_shelves *head)
+{
+	t_lst_shelves *tmp_node;
+
+	tmp_node = head;
+	while (tmp_node)
+	{
+		if (tmp_node->is_full == false)
+			return (false);
+		tmp_node = tmp_node->next;
+	}
+	return (true);
 }

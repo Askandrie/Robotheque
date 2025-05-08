@@ -2,15 +2,15 @@
  * @ Author: Aska
  * @ Create Time: 2025-05-05 03:08:10
  * @ Modified by: Aska
- * @ Modified time: 2025-05-07 03:05:47
+ * @ Modified time: 2025-05-07 23:03:10
  */
 
 #include "check_arg.h"
 // #include "data.h"
+#include "engine.h"
 #include "file_load.h"
 #include "lst_books.h"
 #include "lst_shelves.h"
-
 #include <stdio.h>
 
 int main(int ac, char **av)
@@ -25,8 +25,8 @@ int main(int ac, char **av)
 	if (exit_code == true)
 		exit_code = file_load_shelves(av[2], &shelf);
 
-	print_lst_shelves(shelf);
-	print_lst_books(books);
+	engine(&books, &shelf);
+
 	delete_all_lst_books(&books);
 	delete_all_lst_shelves(&shelf);
 

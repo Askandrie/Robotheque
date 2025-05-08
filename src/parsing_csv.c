@@ -2,7 +2,7 @@
  * @ Author: Aska
  * @ Create Time: 2025-05-06 13:20:46
  * @ Modified by: Aska
- * @ Modified time: 2025-05-07 03:38:41
+ * @ Modified time: 2025-05-07 23:49:34
  */
 
 #include "parsing_csv.h"
@@ -107,7 +107,7 @@ void cb_row_books(int c, void *data)
 	free(csv_buf->sum_of_book);
 	if (csv_buf->idx == 5)
 	{
-		t_vol3us vol = {height, width, depth};
+		t_vol3us vol = {width, height, depth};
 		init_series(&series, csv_buf->name, vol, sum_of_book);
 		t_lst_books *new_book = insert_lst_books(csv_buf->books, series, idx++);
 		if (new_book == NULL)

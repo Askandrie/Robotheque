@@ -2,7 +2,7 @@
  * @ Author: Aska
  * @ Create Time: 2025-05-06 00:55:32
  * @ Modified by: Aska
- * @ Modified time: 2025-05-07 03:31:44
+ * @ Modified time: 2025-05-07 20:27:29
  */
 
 #include "lst_books.h"
@@ -17,8 +17,9 @@ t_lst_books *insert_lst_books(t_lst_books **head, t_series series, int idx)
 	if (new_node == NULL)
 		return (NULL);
 	memcpy(&new_node->series, &series, sizeof series);
-	new_node->idx  = idx;
-	new_node->next = NULL;
+	new_node->idx       = idx;
+	new_node->is_placed = false;
+	new_node->next      = NULL;
 	if (*head == NULL)
 	{
 		*head = new_node;
@@ -68,4 +69,18 @@ void print_lst_books(t_lst_books *head)
 		print_series(&tmp_node->series);
 		tmp_node = tmp_node->next;
 	}
+}
+
+bool check_lst_books_is_placed(t_lst_books *head)
+{
+	t_lst_books *tmp_node;
+
+	tmp_node = head;
+	while (tmp_node)
+	{
+		if (tmp_node->is_placed == false)
+			return false;
+		tmp_node = tmp_node->next;
+	}
+	return true;
 }
