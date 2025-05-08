@@ -32,7 +32,7 @@ Un petit utilitaire en ligne de commande pour optimiser l'organisation des livre
 1. Clonez le dépôt :
 
    ```bash
-   git clone https://github.com/<votre-utilisateur>/Robotheque.git
+   git clone https://github.com/Askandrie/Robotheque.git
    cd Robotheque
    ```
 
